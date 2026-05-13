@@ -82,9 +82,11 @@ animation:floatUp linear infinite
 }
 </style>
 </head>
+
 <body>
 <div class="fondo" id="fondo">
 <div class="bubbles" id="bubbles"></div>
+
 <div class="cintillo"><img src="Cumple.png"></div>
 <div class="flounder"><img src="Flounder.png"></div>
 <div class="sebastian"><img src="Sebastian.png"></div>
@@ -144,10 +146,15 @@ function toggleMusic(){
 p.paused?playMusic():pauseMusic();
 }
 
-f.addEventListener("click",e=>{
-if(e.target.closest("a")||e.target.closest("#playBtn"))return;
+/* ✅ FIX: música en toda la invitación */
+function startMusicOnce(){
+if(!p.paused) return;
 playMusic();
-});
+}
+
+document.addEventListener("pointerdown", startMusicOnce, { once:true });
+document.addEventListener("touchstart", startMusicOnce, { once:true });
+document.addEventListener("click", startMusicOnce, { once:true });
 
 $("playBtn").addEventListener("click",e=>{
 e.stopPropagation();
