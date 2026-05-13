@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>Invitación</title>
+
+<meta property="og:title" content="¡Estas Invitado! Cumpleaños 7 de Salvia">
+<meta property="og:image" content="https://geraldream.github.io/Cumple7Salvia/Portada.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://geraldream.github.io/Cumple7Salvia/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¡Estas Invitado! Cumpleaños 7 de Salvia">
+<meta name="twitter:image" content="https://geraldream.github.io/Cumple7Salvia/Portada.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Mermaid+Swash+Caps&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#fff;overflow:hidden}
+.fondo{position:relative;margin:0 auto;max-width:400px;width:100%;height:100%;background:url('Fondo.png') no-repeat center top/100% 100%;overflow:hidden;cursor:pointer}
+.cintillo,.flounder,.sebastian,.ubicacion,.confirmacion{position:absolute}
+.cintillo{top:20%;left:50%;transform:translateX(-50%);width:70%}
+.flounder{top:3%;right:3%;width:25%;animation:swim 6s infinite ease-in-out}
+.flounder img{width:100%;display:block;animation:waveFin 2s infinite ease-in-out}
+.sebastian{bottom:0;right:0;width:25%;animation:walkSebastian 5s ease-in-out infinite}
+.ubicacion{top:58%;left:56%;transform:translateX(-50%);width:50%;z-index:10}
+.confirmacion{top:66%;left:56%;transform:translateX(-50%);width:50%;z-index:10}
+.cintillo img,.flounder img,.sebastian img,.ubicacion img,.confirmacion img{width:100%;display:block}
+
+.countdown{position:absolute;top:83%;left:50%;transform:translate(-50%,-50%);width:80%;text-align:center;font-family:'Mermaid Swash Caps',cursive;display:flex;flex-direction:column;align-items:center}
+.countdown h2{margin:0;font-size:1.65em;font-weight:900;color:#18d7d1;-webkit-text-stroke:.7px #000;display:inline-block;transform:scale(1.08,1.05)}
+.time-blocks{display:flex;justify-content:center;gap:15px;flex-wrap:nowrap}
+.time-block{display:flex;flex-direction:column;align-items:center;min-width:62px}
+.number{font-size:2.35em;font-weight:900;color:#d91d2d;margin-bottom:2px;-webkit-text-stroke:1.2px #000;display:inline-block;transform:scale(1.10,1.06)}
+.label{font-size:1.15em;font-weight:900;color:#18d7d1;-webkit-text-stroke:.55px #000;display:inline-block;transform:scale(1.07,1.04)}
+
+.play-btn{
+position:absolute;bottom:1%;left:50%;transform:translateX(-50%);
+width:55px;height:55px;border-radius:50%;background:#a365e3;border:2px solid gold;
+box-shadow:inset 2px 2px 5px rgba(255,255,255,.6),inset -2px -2px 5px rgba(0,0,0,.6);
+display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:20
+}
+.play-btn svg{width:28px;height:28px;fill:#fff}
+
+.bubbles{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.bubble{
+position:absolute;bottom:-60px;border-radius:50%;opacity:.75;
+background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.9),rgba(255,255,255,.2) 40%,rgba(173,216,230,.12) 70%,rgba(255,255,255,.05));
+box-shadow:inset -4px -4px 10px rgba(255,255,255,.15),inset 4px 4px 10px rgba(255,255,255,.4),0 0 12px rgba(255,255,255,.25);
+animation:floatUp linear infinite
+}
+
+@keyframes swim{0%,50%,100%{transform:translate(0,0)}25%{transform:translate(-5px,3px)}75%{transform:translate(5px,-3px)}}
+@keyframes waveFin{0%,100%{transform:rotate(0)}50%{transform:rotate(10deg)}}
+@keyframes walkSebastian{
+0%,100%{transform:translate(0,0) rotate(0)}
+20%{transform:translate(-18px,-2px) rotate(-1deg)}
+40%{transform:translate(-45px,2px) rotate(1deg)}
+60%{transform:translate(-75px,-2px) rotate(-1deg)}
+80%{transform:translate(-40px,1px) rotate(1deg)}
+}
+@keyframes floatUp{
+0%{transform:translateY(0);opacity:0}
+10%{opacity:.7}
+50%{transform:translate(-10px,-50vh)}
+100%{transform:translate(10px,-120vh) scale(1.15);opacity:0}
+}
+
+@media(max-width:600px){
+.cintillo{top:19.5%}
+.ubicacion{top:60%}
+.confirmacion{top:68%}
+.countdown{top:84.2%;width:92%}
+.countdown h2{font-size:1.32em}
+.time-blocks{gap:6px}
+.time-block{min-width:48px}
+.number{font-size:1.72em}
+.label{font-size:.82em}
+.play-btn{width:40px;height:40px}
+.play-btn svg{width:22px;height:22px}
+}
+</style>
+</head>
+<body>
+<div class="fondo" id="fondo">
+<div class="bubbles" id="bubbles"></div>
+<div class="cintillo"><img src="Cumple.png"></div>
+<div class="flounder"><img src="Flounder.png"></div>
+<div class="sebastian"><img src="Sebastian.png"></div>
+
+<div class="ubicacion"><a href="https://maps.app.goo.gl/TGhZCJdSrFf71ZBq9" target="_blank"><img src="Ubicacion.png"></a></div>
+<div class="confirmacion"><a href="https://wa.me/525530759268?text=Hola,%20quiero%20mas%20información..." target="_blank"><img src="Confirmacion.png"></a></div>
+
+<div class="countdown">
+<h2>Faltan:</h2>
+<div class="time-blocks">
+<div class="time-block"><span class="number" id="days"></span><span class="label">Días</span></div>
+<div class="time-block"><span class="number" id="hours"></span><span class="label">Horas</span></div>
+<div class="time-block"><span class="number" id="minutes"></span><span class="label">Minutos</span></div>
+<div class="time-block"><span class="number" id="seconds"></span><span class="label">Segundos</span></div>
+</div>
+</div>
+
+<div class="play-btn" id="playBtn">
+<svg viewBox="0 0 100 100"><polygon id="iconShape" points="40,30 40,70 70,50"/></svg>
+</div>
+
+<audio id="player" src="Musica.mp3" preload="auto"></audio>
+</div>
+
+<script>
+const $=e=>document.getElementById(e),p=$("player"),i=$("iconShape"),b=$("bubbles"),f=$("fondo");
+let on=false;
+
+function cd(){
+let d=new Date("April 10,2027 15:00:00 GMT-0600")-new Date(),k=["days","hours","minutes","seconds"];
+if(d<1)return k.forEach(e=>$(e).textContent=0);
+[864e5,36e5,6e4,1e3].forEach((v,n)=>$(k[n]).textContent=Math.floor(d/v)%[1e9,24,60,60][n])
+}
+setInterval(cd,1000);cd();
+
+function updateIcon(){
+i.setAttribute("points",on
+?"35,30 35,70 45,70 45,30 55,30 55,70 65,70 65,30"
+:"40,30 40,70 70,50")
+}
+
+async function playMusic(){
+try{
+await p.play();
+on=true;
+updateIcon();
+}catch(e){}
+}
+
+function pauseMusic(){
+p.pause();
+on=false;
+updateIcon();
+}
+
+function toggleMusic(){
+p.paused?playMusic():pauseMusic();
+}
+
+f.addEventListener("click",e=>{
+if(e.target.closest("a")||e.target.closest("#playBtn"))return;
+playMusic();
+});
+
+$("playBtn").addEventListener("click",e=>{
+e.stopPropagation();
+toggleMusic();
+});
+
+for(let n=18;n--;){
+let s=document.createElement("span"),z=Math.random()*35+10;
+s.className="bubble";
+s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;animation-duration:${Math.random()*8+8}s;animation-delay:${Math.random()*8}s`;
+b.appendChild(s)
+}
+</script>
+</body>
+</html>
